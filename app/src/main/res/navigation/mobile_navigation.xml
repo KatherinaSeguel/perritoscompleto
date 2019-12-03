@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_breed_list">
+
+    <fragment
+        android:id="@+id/nav_breed_list"
+        android:name="cl.cristianvidal.dogsmobdevapp.ui.breedList.BreedListFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_breed_list" />
+
+    <fragment
+        android:id="@+id/nav_send"
+        android:name="cl.cristianvidal.dogsmobdevapp.ui.dialogExit.DialogExitFragment"
+        android:label="@string/menu_exit"
+        tools:layout="@layout/fragment_dialog_exit" />
+</navigation>
