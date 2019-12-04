@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/nav_breed_list"
-        android:name="cl.cristianvidal.dogsmobdevapp.ui.breedList.BreedListFragment"
+        android:name="cl.cristianvidal.dogsmobdevapp.breedList.ui.BreedListFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_breed_list" />
 
     <fragment
         android:id="@+id/nav_send"
-        android:name="cl.cristianvidal.dogsmobdevapp.ui.dialogExit.DialogExitFragment"
+        android:name="cl.cristianvidal.dogsmobdevapp.dialogExit.DialogExitFragment"
         android:label="@string/menu_exit"
         tools:layout="@layout/fragment_dialog_exit" />
 </navigation>

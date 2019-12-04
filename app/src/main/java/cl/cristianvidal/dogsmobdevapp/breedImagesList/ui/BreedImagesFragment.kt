@@ -1,4 +1,4 @@
-package cl.cristianvidal.dogsmobdevapp.ui.breedList
+package cl.cristianvidal.dogsmobdevapp.breedImagesList.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import cl.cristianvidal.dogsmobdevapp.R
 
-class BreedListFragment : Fragment() {
+class BreedImagesFragment : Fragment() {
 
-    private lateinit var breedListViewModel: BreedListViewModel
+    private lateinit var breedImagesViewModel: BreedImagesViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        breedListViewModel =
-            ViewModelProviders.of(this).get(BreedListViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_breed_list, container, false)
-        val textView: TextView = root.findViewById(R.id.text_gallery)
-        breedListViewModel.text.observe(this, Observer {
+        breedImagesViewModel =
+            ViewModelProviders.of(this).get(BreedImagesViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_breed_images, container, false)
+        val textView: TextView = root.findViewById(R.id.text_home)
+        breedImagesViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

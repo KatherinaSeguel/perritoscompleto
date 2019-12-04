@@ -1,13 +1,13 @@
-package cl.cristianvidal.dogsmobdevapp.ui.breedList
+package cl.cristianvidal.dogsmobdevapp.breedImagesList.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class BreedListViewModel : ViewModel() {
+class BreedImagesViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is gallery Fragment"
+        value = "This is home Fragment"
     }
     val text: LiveData<String> = _text
 }
