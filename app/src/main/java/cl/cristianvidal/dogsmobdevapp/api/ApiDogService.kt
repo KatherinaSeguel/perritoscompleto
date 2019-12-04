@@ -13,7 +13,7 @@ interface ApiDogService {
 
 
     @GET("/api/breeds/list")
-    suspend fun getBreedList(): Response<ResultResponseFromAPI<Breed>>
+    suspend fun getBreedList(): Response<Breed>
 
 
     @GET("/api/breed/{breed name}/images")

@@ -11,6 +11,34 @@
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_breed_list" />
 
+    <action
+        android:id="@+id/action_breed_list_fragment_to_breed_images_fragment"
+        app:destination="@id/breed_image_fragment"
+        app:enterAnim="@anim/slide_in_right"
+        app:exitAnim="@anim/slide_out_left"
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
+
+    <fragment
+        android:id="@+id/breed_image_fragment"
+        android:name="cl.cristianvidal.dogsmobdevapp.breedImagesList.ui.BreedImagesFragment"
+        android:label="@string/images_list_title"
+        tools:layout="@layout/fragment_breed_images">
+
+        <argument
+            android:name="themeId"
+            android:defaultValue="-1"
+            app:argType="integer" />
+
+        <argument
+            android:name="themeName"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+    </fragment>
+
+
     <fragment
         android:id="@+id/nav_send"
         android:name="cl.cristianvidal.dogsmobdevapp.dialogExit.DialogExitFragment"

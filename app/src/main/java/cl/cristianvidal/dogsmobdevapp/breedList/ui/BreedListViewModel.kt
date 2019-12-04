@@ -1,13 +1,17 @@
 package cl.cristianvidal.dogsmobdevapp.breedList.ui
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import cl.cristianvidal.dogsmobdevapp.breedList.data.BreedListRepository
+import javax.inject.Inject
 
-class BreedListViewModel : ViewModel() {
+/**
+ * The ViewModel for breedListFragment
+ */
+class BreedListViewModel @Inject constructor(repository: BreedListRepository) : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is gallery Fragment"
-    }
-    val text: LiveData<String> = _text
+    val breedList = repository.breedList
+
+
+
+
 }

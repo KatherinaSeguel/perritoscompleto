@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import cl.cristianvidal.dogsmobdevapp.breedImagesList.data.BreedImageDAO
 import cl.cristianvidal.dogsmobdevapp.breedImagesList.data.BreedImages
 import cl.cristianvidal.dogsmobdevapp.breedList.data.Breed
 import cl.cristianvidal.dogsmobdevapp.breedList.data.BreedDao
@@ -17,6 +18,7 @@ import cl.cristianvidal.dogsmobdevapp.breedList.data.BreedDao
 abstract class AppDataBase : RoomDatabase() {
 
     abstract fun BreedDao(): BreedDao
+    abstract fun BreedImageDAO(): BreedImageDAO
 
     companion object {
 

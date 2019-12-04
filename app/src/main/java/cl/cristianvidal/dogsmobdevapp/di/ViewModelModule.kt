@@ -1,6 +1,7 @@
 package cl.cristianvidal.dogsmobdevapp.di
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import cl.cristianvidal.dogsmobdevapp.breedImagesList.ui.BreedImagesViewModel
 import cl.cristianvidal.dogsmobdevapp.breedList.ui.BreedListViewModel
 import dagger.Binds
@@ -24,5 +25,7 @@ abstract class ViewModelModule {
     abstract fun bindBreedImagesViewModel(viewModel: BreedImagesViewModel): ViewModel
 
 
+    @Binds
+    abstract fun bindViewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
 
 }

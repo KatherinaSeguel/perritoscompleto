@@ -16,6 +16,6 @@ interface BreedDao {
     fun getBreedList(): LiveData<List<Breed>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(breed: List<Breed>)
+    suspend fun insertAll(breed: Breed)
 
 }

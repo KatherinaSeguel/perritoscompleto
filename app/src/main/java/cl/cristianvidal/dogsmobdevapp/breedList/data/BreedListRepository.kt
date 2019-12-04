@@ -16,6 +16,6 @@ class BreedListRepository @Inject constructor(
     val breedList = resultLiveData(
         databaseQuery = { dao.getBreedList() },
         networkCall = { remoteDataSource.fetchData() },
-        saveCallResult = { dao.insertAll(it.message) }
+        saveCallResult = { dao.insertAll(it) }
     )
 }

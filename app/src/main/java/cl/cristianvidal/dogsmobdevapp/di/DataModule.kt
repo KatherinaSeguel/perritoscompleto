@@ -1,8 +1,11 @@
 package cl.cristianvidal.dogsmobdevapp.di
 
+import androidx.databinding.library.BuildConfig
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
@@ -13,6 +16,17 @@ import javax.inject.Singleton
 @Module
 class DataModule {
 
+    @Provides
+    fun provideOkHttpClient(interceptor: HttpLoggingInterceptor): OkHttpClient =
+        OkHttpClient.Builder().addInterceptor(interceptor)
+            .build()
+
+    @Provides
+    fun provideLoggingInterceptor() =
+        HttpLoggingInterceptor().apply {
+            level =
+                if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY else HttpLoggingInterceptor.Level.NONE
+        }
 
     @Provides
     @Singleton

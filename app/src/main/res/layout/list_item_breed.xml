@@ -9,9 +9,8 @@
             type="android.view.View.OnClickListener" />
 
         <variable
-            name="breedList"
+            name="breedListItem"
             type="cl.cristianvidal.dogsmobdevapp.breedList.data.Breed" />
-
     </data>
 
     <androidx.cardview.widget.CardView
@@ -27,12 +26,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:gravity="center"
-            android:text="@{breedList.toString()}"
+            android:text="@{breedListItem.toString()}"
             android:textAppearance="?attr/textAppearanceHeadline6"
             tools:text="Dog Breed" />
 
 
     </androidx.cardview.widget.CardView>
-
-
 </layout>

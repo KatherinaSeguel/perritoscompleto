@@ -4,14 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
-import cl.cristianvidal.dogsmobdevapp.R
+import androidx.lifecycle.ViewModelProvider
+import cl.cristianvidal.dogsmobdevapp.databinding.FragmentBreedImagesBinding
+import cl.cristianvidal.dogsmobdevapp.di.Injectable
+import cl.cristianvidal.dogsmobdevapp.di.injectViewModel
+import javax.inject.Inject
 
-class BreedImagesFragment : Fragment() {
+class BreedImagesFragment : Fragment(), Injectable {
 
+    @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
     private lateinit var breedImagesViewModel: BreedImagesViewModel
 
     override fun onCreateView(
@@ -19,13 +21,14 @@ class BreedImagesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        breedImagesViewModel =
-            ViewModelProviders.of(this).get(BreedImagesViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_breed_images, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        breedImagesViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+
+        breedImagesViewModel = injectViewModel(viewModelFactory)
+
+        val binding = FragmentBreedImagesBinding.inflate(inflater, container,false)
+        context ?: return binding.root
+
+
+
+        return binding.root
     }
 }

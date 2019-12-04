@@ -1,6 +1,7 @@
 package cl.cristianvidal.dogsmobdevapp.di
 
 import android.app.Application
+import cl.cristianvidal.dogsmobdevapp.breedImagesList.data.BreedImagesRemoteDataSource
 import cl.cristianvidal.dogsmobdevapp.breedList.data.BreedListRemoteDataSource
 import cl.cristianvidal.dogsmobdevapp.data.AppDataBase
 import cl.cristianvidal.dogsmobdevapp.util.Constants
@@ -24,33 +25,47 @@ class AppModule {
     fun provideApiDogService(
         @ApiDogService okHttpClient: OkHttpClient,
         converterFactory: GsonConverterFactory
-    ) = provideService(okHttpClient, converterFactory, ApiDogService::class.java)
+    ) = provideService(
+        okHttpClient, converterFactory,
+        cl.cristianvidal.dogsmobdevapp.api.ApiDogService::class.java
+    )
 
     @Singleton
     @Provides
     fun provideRemoteBreedListDataSource(apiDogService: cl.cristianvidal.dogsmobdevapp.api.ApiDogService) =
-        BreedListRemoteDataSource(
-            apiDogService
-        )
+        BreedListRemoteDataSource(apiDogService)
 
-    //This is not use because this api don`t need AuthInterceptor
-
-//    @ApiDogService
-//    @Provides
-//    fun provideOkHttpClient( upstreamClient: OkHttpClient
-//    ): OkHttpClient {
-//        return upstreamClient.newBuilder()
-//            .addInterceptor(AuthInterceptor(BuildConfig.API_DEVELOPER_TOKEN)).build()
-
-
-    @CoroutineScropeIO
+    @Singleton
     @Provides
-    fun provideCoroutineScopeIO() = CoroutineScope(Dispatchers.IO)
+    fun provideRemoteBreedImagesDataSource(apiDogService: cl.cristianvidal.dogsmobdevapp.api.ApiDogService) =
+        BreedImagesRemoteDataSource(apiDogService)
+
+
+    @ApiDogService
+    @Provides
+    fun provideOkHttpClient(
+        upstreamClient: OkHttpClient
+    ): OkHttpClient {
+        return upstreamClient.newBuilder().build()
+    }
 
 
     @Singleton
     @Provides
     fun provideDb(app: Application) = AppDataBase.getInstance(app)
+
+    @Singleton
+    @Provides
+    fun provideBreedDao(db: AppDataBase) = db.BreedDao()
+
+    @Singleton
+    @Provides
+    fun provideBreedImageList(db: AppDataBase) = db.BreedImageDAO()
+
+
+    @CoroutineScropeIO
+    @Provides
+    fun provideCoroutineScopeIO() = CoroutineScope(Dispatchers.IO)
 
 
     private fun createRetrofit(
