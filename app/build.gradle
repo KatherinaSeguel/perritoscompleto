@@ -1,18 +1,16 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
-
-apply plugin: 'kotlin-android'
-
-apply plugin: 'kotlin-android-extensions'
-
 apply plugin: 'kotlin-kapt'
+apply plugin: 'androidx.navigation.safeargs'
+
 
 
 android {
     compileSdkVersion 29
+    dataBinding {
+        enabled = true
+    }
     defaultConfig {
         applicationId "cl.cristianvidal.dogsmobdevapp"
         minSdkVersion 23
@@ -108,4 +106,7 @@ dependencies {
     androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"
     androidTestImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
     androidTestImplementation "org.mockito:mockito-android:$rootProject.mockitoAndroidVersion"
+
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }

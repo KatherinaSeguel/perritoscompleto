@@ -12,11 +12,11 @@ import retrofit2.http.Path
 interface ApiDogService {
 
 
-    @GET("/api/breeds/list")
+    @GET("api/breeds/list")
     suspend fun getBreedList(): Response<Breed>
 
 
-    @GET("/api/breed/{breed name}/images")
-    suspend fun getImagesOfSelectedBreed(@Path("breed") breed: String): Response<ResultResponseFromAPI<BreedImages>>
+    @GET("api/breed/{breed}/images")
+    suspend fun getImagesOfSelectedBreed(@Path("breed") breed: String): Response<BreedImages>
 
 }

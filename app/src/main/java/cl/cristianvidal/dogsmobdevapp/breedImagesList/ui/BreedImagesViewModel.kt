@@ -6,7 +6,7 @@ import javax.inject.Inject
 
 class BreedImagesViewModel @Inject constructor(repository: BreedImageRepository) : ViewModel() {
 
-    val breedImageList = repository.observeImages(breedString = String())
-
+    lateinit var id: String
+    val breedImages by lazy { repository.observeSet(id) }
 
 }

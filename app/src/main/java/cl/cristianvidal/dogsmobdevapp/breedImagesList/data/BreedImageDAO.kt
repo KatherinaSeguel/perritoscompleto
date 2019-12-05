@@ -17,5 +17,5 @@ interface BreedImageDAO {
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAllBreeImages(breedImages: List<BreedImages>)
+    suspend fun insertAllBreeImages(breedImages: BreedImages)
 }

@@ -13,7 +13,7 @@
             android:clipToPadding="false"
             android:scrollbars="vertical"
             tools:context="cl.cristianvidal.dogsmobdevapp.MainActivity"
-            tools:listitem="@layout/list_item_image"/>
+            tools:listitem="@layout/list_item_alternative_image"/>
 
         <ProgressBar
             android:id="@+id/progressBar"

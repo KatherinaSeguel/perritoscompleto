@@ -42,12 +42,9 @@ class BreedListFragment : Fragment(), Injectable {
             )
         )
         binding.recyclerViewBreed.adapter = adapter
-
-
         subscribeUI(binding, adapter)
 
-
-
+        setHasOptionsMenu(true)
         return binding.root
     }
 
@@ -59,10 +56,7 @@ class BreedListFragment : Fragment(), Injectable {
                 Result.Status.SUCCESS -> {
                     binding.progressBar.hide()
                     result.data?.let {
-
-
-
-                        adapter.submitList(it) }
+                        adapter.submitList(it[0].message) }
                 }
                 Result.Status.LOADING -> binding.progressBar.show()
                 Result.Status.ERROR -> {

@@ -7,7 +7,7 @@ package cl.cristianvidal.dogsmobdevapp.util
 class Constants {
 
     companion object {
-        const val ENDPOINT = "https://dog.ceo"
+        const val ENDPOINT = "https://dog.ceo/"
     }
 }
 
